@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --product-gradient: linear-gradient(135deg, #9E9E9E 0%, #424242 100%);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background: var(--product-gradient);
+    color: white;
+    transition: background 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Hide default cursor on desktop for custom cursor */
+  @media (hover: hover) and (pointer: fine) {
+    *, *::before, *::after {
+      cursor: none !important;
+    }
+  }
+
+  ::selection {
+    @apply bg-orange-500 text-white;
+  }
+
+  /* Hide scrollbar for a cleaner "app-like" feel */
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+}
+
+/* GlowCard spinning border animation */
+@property --glow-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes glowSpin {
+  from { --glow-angle: 0deg; }
+  to { --glow-angle: 360deg; }
+}
+
+/* Light mode overrides */
+.light-mode {
+  color: #1a1a1a;
+}
+
+.light-mode body {
+  background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%) !important;
+}
+
+.light-mode .text-white {
+  color: #1a1a1a;
+}
+
+.light-mode .text-white\/80 {
+  color: rgba(26, 26, 26, 0.8);
+}
+
+.light-mode .text-white\/70 {
+  color: rgba(26, 26, 26, 0.7);
+}
+
+.light-mode .text-white\/60 {
+  color: rgba(26, 26, 26, 0.6);
+}
+
+.light-mode .text-white\/50 {
+  color: rgba(26, 26, 26, 0.5);
+}
+
+.light-mode .bg-white\/5 {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.light-mode .bg-white\/10 {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .border-white\/10 {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .bg-black\/40 {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.light-mode .bg-black\/20 {
+  background-color: rgba(255, 255, 255, 0.4);
+}
